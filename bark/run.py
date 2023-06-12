@@ -12,15 +12,16 @@ from fastapi import FastAPI, Response
 from fastapi.encoders import jsonable_encoder
 import time
 from pydantic import BaseModel
-# preload_models()
 
-# t0 = time.time()
-# text = "In the light of the moon, a little egg lay on a leaf"
-# audio_array = generate_audio(text)
-# generation_duration_s = time.time() - t0
-# audio_duration_s = audio_array.shape[0] / SAMPLE_RATE
-# print(audio_array.astype(np.float32).tostring())
-# print(f"took {generation_duration_s:.0f}s to generate {audio_duration_s:.0f}s of audio")
+# Import the logging module
+import logging
+
+# Configure the logging settings
+logging.basicConfig(level=logging.DEBUG)
+
+# Print debug message
+logging.debug("Starting the run module")
+
 
 class Item(BaseModel):
     prompt: str
@@ -35,15 +36,13 @@ async def process_prompt(item: Item):
     preload_models()
 
     t0 = time.time()
-    # text = "In the light of the moon, a little egg lay on a leaf"
+
     audio_array = generate_audio(item.prompt)
     generation_duration_s = time.time() - t0
     audio_duration_s = audio_array.shape[0] / SAMPLE_RATE
 
-    # print(f"took {generation_duration_s:.0f}s to generate {audio_duration_s:.0f}s of audio")
-
-    # Example response
-    # response = json.dumps(audio_array.tolist())
+    # Print debug message
+    logging.debug("Finished running the run module")
 
     
     return Response(content=audio_array.tobytes(), media_type="application/octet-stream")

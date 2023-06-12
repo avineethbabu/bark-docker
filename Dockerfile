@@ -3,11 +3,10 @@ FROM python:3.9
 
 WORKDIR /root
 ADD bark /root/bark
-COPY bark/entry_point.sh root/bark/entry_point.sh
 
-RUN pip install -r /root/bark/requirements.txt
+RUN pip install --no-cache-dir -r /root/bark/requirements.txt
 
-WORKDIR /bark
+WORKDIR /root/bark
 
-CMD ["bash", "entry_point.sh"]
+CMD ["uvicorn", "run:app", "--host", "0.0.0.0", "--port", "8000"]
 
