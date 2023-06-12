@@ -7,4 +7,4 @@ Bark is a transformer-based text-to-audio model created by [Suno](https://suno.a
 
 ## Output
 
-Running the above bark container uses the small model which runs on cpu at port 8000, the response will an octat stream of the generated audio.
+Running the above bark container uses the small model which runs on cpu at port 8000, the response will a stream of the generated audio.
