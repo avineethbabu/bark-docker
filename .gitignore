@@ -1,2 +1,34 @@
 __pycache__/
+
+# .gitignore
+
+# Python-related files
+*.pyc
+*.pyo
+*.pyd
+*.pyz
+*.pyw
+*.pyi
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
 suno_bark.egg-info/
+# Virtual environment
+venv/
+env/
+envs/
+
+# IDE-specific files and directories
+.idea/
+.vscode/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs and other generated files
+*.log
+logs/
+*.txt
